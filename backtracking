@@ -1,0 +1,17 @@
+class Solution:
+    def combine(self, n: int, k: int) -> List[List[int]]:
+        def solve(self,i,arr,ss,ps):
+            if len(ss)==k:
+                return ps.append(ss)
+            
+            for j in range(i,len(arr)):
+                ss.append(arr[j])
+                solve(self,j+1,arr,list(ss),ps)
+                ss.pop()
+        num=[]
+        for i in range(1,n+1):
+            num.append(i)
+        ps=[]
+        ss=[]
+        solve(self,0,num,ss,ps)
+        return ps
